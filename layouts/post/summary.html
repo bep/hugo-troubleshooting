@@ -1,0 +1,39 @@
+<div class="blog-post">
+  <div class="blog-post-title">
+    <h3>
+      {{ if eq .Draft true}}
+        [DRAFT]
+      {{ end }}
+      <a href="{{ .Permalink }}">{{ .Title }}</a>
+    </h3>
+  </div>
+  <div class="blog-post-body">
+    <div class="row">
+      <div class="col-md-12">{{ .Summary }}</div>
+    </div>
+    <div class="row">
+      <div class="pull-right">
+        <a class="btn btn-readmore" href="{{ .Permalink }}">Read More <span class="fa fa-angle-double-right"></span></a>
+      </div>
+    </div>
+  </div>
+  <div class="blog-post-footer clearfix">
+    <div class="row">
+      <div class="col-md-4 summary-row">
+        <div class="meta-box">
+          <i class="fa fa-calendar"></i>Published On: {{ .Date.Month }} {{ .Date.Day }} {{ .Date.Year }}
+        </div>
+      </div>
+      <div class="col-md-4 summary-row summary-row-center-col">
+        {{ range .Params.topics }}
+          <a class="tag-cloud" href="topics/{{ . | urlize }}"><i class="fa fa-folder"></i>{{ . }}</a></span>
+        {{ end }}
+      </div>
+      <div class="col-md-4 summary-row">
+        {{ range .Params.tags }}
+          <a class="tag-cloud" href="tags/{{ . | urlize }}"><i class="fa fa-tag"></i>{{ . }}</a></span>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</div>

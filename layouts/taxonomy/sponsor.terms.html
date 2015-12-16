@@ -1,0 +1,43 @@
+{{ partial "header" . }}
+{{ partial "top_nav" . }}
+<div class="maincontainer">
+  <div class="row">
+    <div class="col-md-8">
+        <div class="blog-post">
+          <div class="blog-post-title">
+            <h2>
+              {{ .Title }}
+            </h2>
+          </div>
+          <div class="blog-post-body">
+            <p>These excellent companies have helped me bring you this site and projects:</p>
+            {{ range $key, $value := $.Site.Data.sponsors }}
+              {{ if eq $value.status "past" }}
+                <div class="panel panel-warning">
+              {{end}}
+              {{ if eq $value.status "current" }}
+                <div class="panel panel-success">
+              {{end}}
+              {{ if eq $value.status "future" }}
+
+              {{end}}
+                <div class="panel-heading">{{ $value.name }}</div>
+                <div class="panel-body">{{ $value.description }}</div>
+                <div class="panel-footer">
+                  {{with $value.twitter }}<a href="https://www.twitter.com/{{ $value.twitter }}" class="btn btn-sm btn-twitter"><i class="fa fa-twitter"> Twitter</i></a>{{ end }}
+                  {{with $value.facebook }}<a href="https://www.facebook.com/{{ $value.facebook }}" class="btn btn-sm btn-facebook"><i class="fa fa-facebook"> Facebook</i></a>{{ end }}
+                  {{with $value.website }}<a href="{{ $value.website }}" class="btn btn-sm btn-website"><i class="fa fa-laptop"> Web</i></a>{{ end }}
+                  {{with $value.contact_email }}<a href="mailto:{{ $value.contact_email }}" class="btn btn-sm btn-email"><i class="fa fa-envelope"> Email</i></a>{{ end }}
+                </div>
+              </div>
+            {{ end }}
+          </div>
+        </div>
+
+    </div>
+    <div class="col-md-4">
+      {{ partial "sidebar/default_container" . }}
+    </div>
+  </div>
+</div>
+{{ partial "footer" . }}

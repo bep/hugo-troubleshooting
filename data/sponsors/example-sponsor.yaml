@@ -1,0 +1,16 @@
+status: current
+name: "Example Sponsor"
+description: "This is the description of an example sponsor."
+bio: "A Blurb about the Company"
+how_they_help: "They do fun things"
+website: "http://www.example.com"
+twitter: "example"
+facebook: "example"
+logo_sm: "http://placehold.it/80x80"
+log_lg: "http://placehold.it/120x120"
+ad_square_sm: "http://placehold.it/144x144"
+ad_square_lg: "http://placehold.it/320x320"
+ad_banner_sm: "http://placehold.it/320x120"
+ad_banner_lg: "http://placehold.it/480x120"
+contact_name: "General Debugger"
+contact_email: debugger@example.com

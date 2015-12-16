@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /search
+Sitemap: https://www.beyondvm.com/sitemap.xml

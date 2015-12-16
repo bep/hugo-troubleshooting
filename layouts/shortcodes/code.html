@@ -1,0 +1,7 @@
+<div class="code-wrapper">
+  <div class="code-header">
+    {{ .Get "title" }}
+  </div>
+  <pre class="language-{{ .Get "lang" }} line-numbers" data-line="{{ .Get "highlight" }}" data-start="1"><code class="codeblock">{{ .Inner }}</code></pre>
+  <div class="code-footer"></div>
+</div>

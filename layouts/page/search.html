@@ -1,0 +1,15 @@
+{{ partial "header" . }}
+{{ partial "top_nav" . }}
+<div class="maincontainer">
+  <div class="row">
+    <div class="col-md-8">
+      <h3>{{ .Title }}</h3>
+      <div id="search_results"></div>
+    </div>
+    <div class="col-md-4">
+      {{ partial "sidebar/default_container" . }}
+    </div>
+  </div>
+</div>
+
+{{ partial "footer" . }}

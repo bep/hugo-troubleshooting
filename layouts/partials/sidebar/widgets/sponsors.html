@@ -1,0 +1,14 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <i class="fa fa-lg fa-fighter-jet"></i>
+    Sponsors
+  </div>
+  <div class="panel-body">
+    <p>
+      The people and companies below are kind enough to lend me their support in writing this blog, please consider using their products!
+    </p>
+    {{ range $key, $value := $.Site.Data.sponsors }}
+      <a href="{{ $value.website }}" target="_blank"><img src="{{ $value.ad_banner_sm }}" alt="{{ $value.name }}" class="img-responsive img-thumbnail spimg"/></a>
+    {{ end }}
+  </div>
+</div>

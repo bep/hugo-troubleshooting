@@ -1,0 +1,132 @@
+{{ partial "header" . }}
+{{ partial "top_nav" . }}
+<div class="maincontainer">
+  <div class="row">
+    {{ $project := index $.Site.Data.projects (.Title | urlize) }}
+    <div class="col-md-8">
+        <div class="blog-post">
+          <div class="blog-post-title">
+            <h2>
+              {{ $project.name }}
+            </h2>
+          </div>
+          <div class="blog-post-body">
+            <h3>Project Summary</h3>
+            <p>{{ $project.summary | markdownify }}</p>
+            {{ with $project.description }}
+            <h3>Project Detail</h3>
+            <p>{{ $project.description | markdownify }}</p>
+            {{ end }}
+            <h3>Posts</h3>
+            <ul>
+              {{ range .Data.Pages }}
+                {{ .Render "li" }}
+              {{ end }}
+            </ul>
+          </div>
+        </div>
+
+    </div>
+    <div class="col-md-4">
+      <!-- {{ partial "sidebar/default_container" . }} -->
+      {{ if eq $project.status "dev" }}
+        <div class="panel panel-success">
+      {{end}}
+      {{ if eq $project.status "active" }}
+        <div class="panel panel-success">
+      {{end}}
+      {{ if eq $project.status "hold" }}
+        <div class="panel panel-info">
+      {{end}}
+      {{ if eq $project.status "abandoned" }}
+        <div class="panel panel-warning">
+      {{end}}
+      {{ if eq $project.status "stopped" }}
+        <div class="panel panel-danger">
+      {{end}}
+        <div class="panel-heading">
+          {{ $project.name }}
+        </div>
+        <div class="panel-body">
+          {{ with $project.status_description }}
+            {{ if eq $project.status "dev" }}
+              <div class="alert alert-success"><strong>Status: </strong> {{ $project.status_description }}</div>
+            {{end}}
+            {{ if eq $project.status "hold" }}
+              <div class="alert alert-info"><strong>Status: </strong> {{ $project.status_description }}</div>
+            {{end}}
+            {{ if eq $project.status "abandoned" }}
+              <div class="alert alert-warning"><strong>Status: </strong> {{ $project.status_description }}</div>
+            {{end}}
+            {{ if eq $project.status "stopped" }}
+              <div class="alert alert-danger"><strong>Status: </strong> {{ $project.status_description }}</div>
+            {{end}}
+          {{ end }}
+          {{ with $project.preview_image }}
+            <img src="{{ $project.preview_image }}" alt="" class="img-responsive">
+          {{ else }}
+            <img src="http://placehold.it/1280x1024" alt="" class="img-responsive">
+          {{ end }}
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">Current Status</div>
+        <div class="panel-body">
+          {{ if eq $project.status "dev" }}
+            <a href="/project_status/" class="btn btn-default btn-block project-status"><i class="fa fa-code-fork"> Development</i></a>
+          {{end}}
+          {{ if eq $project.status "active" }}
+            <a href="/project_status/" class="btn btn-success btn-block project-status"><i class="fa fa-play"> Active</i></a>
+          {{end}}
+          {{ if eq $project.status "hold" }}
+            <a href="/project_status/" class="btn btn-info btn-block project-status"><i class="fa fa-pause"> On Hold</i></a>
+          {{end}}
+          {{ if eq $project.status "abandoned" }}
+            <a href="/project_status/" class="btn btn-warning btn-block project-status"><i class="fa fa-pause"> Abandoned</i></a>
+          {{end}}
+          {{ if eq $project.status "stopped" }}
+            <a href="/project_status/" class="btn btn-danger btn-block project-status"><i class="fa fa-stop"> Stopped</i></a>
+          {{else}}
+          {{end}}
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">Links</div>
+        <div class="panel-body">
+          {{ with $project.git_project }}
+            <a href="{{ $project.git_project }}" target="_blank" class="btn btn-social btn-block btn-github"><i class="fa fa-github"> GitHub</i></a>
+          {{ end }}
+          {{ with $project.project_homepage }}
+            <a href="{{ $project.project_homepage }}" target="_blank" class="btn btn-social btn-block btn-website"><i class="fa fa-external-link"> Website</i></a>
+          {{ end }}
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">Contributors</div>
+        <div class="panel-body">
+          <p>The following people have contributed to this project:</p>
+        </div>
+        <table class="table">
+          {{ with $project.contributers }}
+            {{ range $project.contributers}}
+                <tr><td>{{ . | markdownify }}</td></tr>
+            {{end}}
+          {{ end }}
+        </table>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">Meta</div>
+        {{ with $project.start_date }}
+          <div class="meta-box">
+            <i class="fa fa-calendar"></i><b>Started On:</b> {{ $project.start_date }}
+          </div>
+        {{ end }}
+        <div class="panel-body">
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+{{ partial "footer" . }}

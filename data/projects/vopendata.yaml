@@ -1,0 +1,16 @@
+name: vOpenData
+status: hold
+status_description: "This project needs a major codebase re-write and this will include data dumps and a much better portal and capture methods."
+summary: vOpenData is an open community project that grew from the question "What is the average VMDK size for deployed virtual machines?
+description: vOpenData is an open community project that grew from the question "What is the average VMDK size for deployed virtual machines?" We wanted to create an open community database that is purely driven by users submitting their virtual infrastructure configurations. Leveraging the powerful virtualization community and applying simple analytics we are able to provide various trending statistics and data for virtualized environments. This is 100% community driven and the results will be available for everyone to view and hopefully you will contribute to the overall dataset!
+project_homepage: http://www.vopendata.org
+preview_image: /img/projects/vopendata/preview.png
+start_date: "April 2013"
+git_project: "https://github.com/vopendata"
+contributers:
+  - "[Ben Thomas](http://www.beyondvm.com)"
+  - "[William Lam](http://www.virtuallyghetto.com)"
+  - Frederic Martin
+  - Raphaël Schitz
+  - Timo Sugliani
+  - Akeem Jenkins

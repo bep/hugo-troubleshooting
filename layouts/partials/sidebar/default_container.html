@@ -1,0 +1,9 @@
+{{ if eq .Site.Params.widget_about true }}{{ partial "sidebar/widgets/about" . }}{{ end }}
+{{ if eq .Site.Params.widget_social true }}{{ partial "sidebar/widgets/social" . }}{{ end }}
+{{ if eq .Site.Params.widget_search true }}{{ partial "sidebar/widgets/search" . }}{{ end }}
+{{ if eq .Site.Params.widget_disclaimer true }}{{ partial "sidebar/widgets/disclaimer" . }}{{ end }}
+{{ if eq .Site.Params.widget_sponsors true }}{{ partial "sidebar/widgets/sponsors" . }}{{ end }}
+{{ if eq .Site.Params.widget_topics true }}{{ partial "sidebar/widgets/topics" . }}{{ end }}
+{{ if eq .Site.Params.widget_tags true }}{{ partial "sidebar/widgets/tags" . }}{{ end }}
+{{ if eq .Site.Params.widget_twitter true }}{{ partial "sidebar/widgets/twitter" . }}{{ end }}
+{{ if eq .Site.Params.widget_recient_comments true }}{{ partial "sidebar/widgets/recient_comments" . }}{{ end }}

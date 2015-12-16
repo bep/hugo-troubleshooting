@@ -1,0 +1,88 @@
+{{ partial "header" . }}
+{{ partial "top_nav" . }}
+<div class="maincontainer">
+  <div class="row">
+    {{ $sponsor := index $.Site.Data.sponsors (.Title | urlize) }}
+    <div class="col-md-8">
+        <div class="blog-post">
+          <div class="blog-post-title">
+            <h2>
+              {{ $sponsor.name }}
+            </h2>
+          </div>
+          <div class="blog-post-body">
+            <div class="row">
+              <div class="col-md-7">
+                <h3>Company Description</h3>
+                {{ $sponsor.description }}
+                <h3>Company Bio</h3>
+                {{ $sponsor.bio }}
+                <h3>How They Help</h3>
+                {{ $sponsor.how_they_help }}
+                <h3>Content</h3>
+                <ul>
+                  {{ range .Data.Pages }}
+                    {{ .Render "li" }}
+                  {{ end }}
+                </ul>
+              </div>
+              <div class="col-md-5">
+                {{ if eq $sponsor.status "past" }}
+                  <div class="panel panel-warning">
+                {{end}}
+                {{ if eq $sponsor.status "current" }}
+                  <div class="panel panel-success">
+                {{end}}
+                {{ if eq $sponsor.status "future" }}
+                  <div class="panel panel-info">
+                {{end}}
+                  <div class="panel-heading">Sponsor Info</div>
+                  <div class="panel-body">
+                    <img src="{{ $sponsor.log_lg }}" alt="{{ .Title }}" class="img-responsive center-block">
+                  </div>
+                  <table class="table">
+                    <tr>
+                      <td><b>Name</b></td>
+                      <td>{{ $sponsor.name }}</td>
+                    </tr>
+                    <tr>
+                      <td><b>Website</b></td>
+                      <td><a href="{{ $sponsor.url }}">{{ $sponsor.url }}</a></td>
+                    </tr>
+                    <tr>
+                      <td><b>Contact</b></td>
+                      <td>
+                        {{ $sponsor.contact_name }}
+                        <a href="mailto:{{ $sponsor.contact_email }}">{{ $sponsor.contact_email }}</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><b>Status</b></td>
+                      <td>
+                        {{ if eq $sponsor.status "past" }}
+                          <a href="" class="btn btn-warning btn-block sponsor-status"><i class="fa fa-backward"> Past</i></a>
+                        {{end}}
+                        {{ if eq $sponsor.status "current" }}
+                          <a href="" class="btn btn-success btn-block sponsor-status"><i class="fa fa-play"> Current</i></a>
+                        {{end}}
+                        {{ if eq $sponsor.status "future" }}
+                          <a href="" class="btn btn-info btn-block sponsor-status"><i class="fa fa-forward"> Past</i></a>
+                        {{end}}
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+    </div>
+    <div class="col-md-4">
+      {{ partial "sidebar/default_container" . }}
+    </div>
+  </div>
+</div>
+
+{{ partial "footer" . }}

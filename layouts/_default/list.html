@@ -1,0 +1,28 @@
+{{ partial "header" . }}
+{{ partial "top_nav" . }}
+<div class="maincontainer">
+  <div class="row">
+    <div class="col-md-8">
+        <div class="blog-post">
+          <div class="blog-post-title">
+            <h2>
+              {{ .Title }}
+            </h2>
+          </div>
+          <div class="blog-post-body">
+            <ul>
+              {{ $data := .Data }}
+              {{ range $key, $value := .Data.Terms }}
+                <li><a href="{{ $key | urlize }}">{{ $key }}</a></li>
+              {{ end }}
+            </ul>
+          </div>
+        </div>
+
+    </div>
+    <div class="col-md-4">
+      {{ partial "sidebar/default_container" . }}
+    </div>
+  </div>
+</div>
+{{ partial "footer" . }}

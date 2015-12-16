@@ -1,0 +1,14 @@
+{{ partial "header" . }}
+{{ partial "top_nav" . }}
+<div class="maincontainer">
+  <div class="row">
+    <div class="col-md-8">
+      
+    <!-- {{ printf "%#v" .Site.Taxonomies.topics.Alphabetical }} -->
+    </div>
+    <div class="col-md-4">
+      {{ partial "sidebar/default_container" . }}
+    </div>
+  </div>
+</div>
+{{ partial "footer" . }}

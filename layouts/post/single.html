@@ -1,0 +1,67 @@
+{{ partial "header" . }}
+{{ partial "top_nav" . }}
+<div class="maincontainer">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="blog-post">
+        <div class="blog-post-title">
+          <h2>
+            {{ if eq .Draft true}}
+              [DRAFT]
+            {{ end }}
+            <a href="{{ .Permalink }}">{{ .Title }}</a>
+          </h2>
+        </div>
+        <div class="blog-post-body">
+          {{ .Content }}
+        </div>
+        <div class="blog-post-footer clearfix">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="meta-box">
+                <i class="fa fa-calendar"></i>Published On: {{ .Date.Month }} {{ .Date.Day }} {{ .Date.Year }}
+              </div>
+              <div class="meta-box meta-author">
+                <i class="fa fa-user"></i>Published By: {{ .Params.author }}
+              </div>
+              <div class="meta-box">
+                <i class="fa fa-keyboard-o"></i>Word Count: {{.FuzzyWordCount }}
+              </div>
+            </div>
+            <div class="col-md-4 blog-footer-center-col">
+              {{ range .Params.topics }}
+                <a class="tag-cloud" href="topics/{{ . | urlize }}"><i class="fa fa-folder"></i>{{ . }}</a></span>
+              {{ end }}
+            </div>
+            <div class="col-md-4">
+              {{ range .Params.tags }}
+                <a class="tag-cloud" href="tags/{{ . | urlize }}"><i class="fa fa-tag"></i>{{ . }}</a></span>
+              {{ end }}
+            </div>
+          </div>
+        </div>
+      </div>
+      {{ if eq .Draft false }}
+        {{ if eq .Params.comments true }}
+          <div class="blog-post-comments">
+            <div class="blog-post-comments-title">
+              <i class="fa fa-comment"></i>
+              Comments
+            </div>
+            <div class="blog-post-comments-body">
+              {{ template "_internal/disqus.html" . }}
+            </div>
+            <div class="blog-post-comments-footer">
+
+            </div>
+          </div>
+        {{ end }}
+      {{ end }}
+
+    </div>
+    <div class="col-md-4">
+      {{ partial "sidebar/default_container" . }}
+    </div>
+  </div>
+</div>
+{{ partial "footer" . }}

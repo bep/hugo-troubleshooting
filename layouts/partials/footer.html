@@ -1,0 +1,24 @@
+    <div class="footercontainer">
+      <div class="row">
+        <div class="col-md-4">
+          <h5 class="pull-left footer-copyright">{{ .Site.Params.copyright }}</h5>
+        </div>
+        <div class="col-md-4 hidden-xs">
+          <h5 class="pull-left footer-hosted">{{ .Site.Params.hosted_by }}</h5>
+        </div>
+        <div class="col-md-4 hidden-xs">
+          <h5 class="pull-right footer-powered">Powered by <a href='http://gohugo.io/' target="_blank">Hugo</a>, built with <a href='http://getbootstrap.com' target="_blank">Bootstrap</a></h5>
+        </div>
+      </div>
+    </div>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery-tapir.patched.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/featherlight.min.js"></script>
+    <script src="/js/prism.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script>
+      $('#search_results').tapir({'token': '{{ .Site.Params.tapir_token }}'});
+    </script>
+  </body>
+</html>

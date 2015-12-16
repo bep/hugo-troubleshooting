@@ -1,0 +1,46 @@
+top_nav:
+  - text: Home
+    link: "/"
+    alt: ""
+    icon: ""
+  - text: Projects
+    link: "/projects"
+    alt: ""
+    icon: ""
+    is_dropdown: true
+    dropdown_items:
+      - link: "/projects/vopendata"
+        text: "vOpenData"
+        alt: ""
+        icon: "fa-hdd-o"
+  - text: Sections
+    is_dropdown: true
+    dropdown_items:
+      - text: Topics
+        link: "/topics/"
+        icon: "fa-folder"
+      - text: Topics
+        link: "/tags/"
+        icon: "fa-tag"
+      # - text: Sponsors
+      #   link: "/sponsors/"
+      #   icon: "fa-fighter-jet"
+  - text: About
+    is_dropdown: true
+    dropdown_items:
+      - text: About Me
+        link: "/about/"
+        icon: "fa-user"
+      - text: Contact Me
+        link: "#"
+        icon: "fa-pencil"
+        is_enabled: false
+      # - is_separator: true
+      - text: Sponsors
+        link: "/sponsors/"
+        icon: "fa-fighter-jet"
+        is_enabled: false
+      - text: Sponsor Me
+        link: "#"
+        icon: "fa-certificate"
+        is_enabled: false

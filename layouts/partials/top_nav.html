@@ -1,0 +1,48 @@
+<div class="navcontainer">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-nav" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">
+          <img alt="BeyondVM" src="/img/beyondvm_blue_horizontal_inverse.svg" class="brandimage hidden-sm hidden-xs">
+          <img alt="BeyondVM" src="/img/beyondvm_blue_square_logo_only.svg" class="brandimage visible-sm visible-xs">
+        </a>
+      </div>
+      <div class="collapse navbar-collapse" id="top-nav">
+        <ul class="nav navbar-nav navbar-right">
+          {{ $menu := index $.Site.Data.menus "top_nav"}}
+          {{ range $menu }}
+            {{if ne .is_enabled false}}
+              {{if eq .is_dropdown true }}
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{.text}} <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    {{range .dropdown_items }}
+                      {{if ne .is_enabled false}}
+                        {{if eq .is_separator true }}
+                          <li role="separator" class="divider"></li>
+                        {{ else }}
+                          {{ if eq .icon ""}}
+                            <li><a href="{{.link}}" alt="{{.alt}}">{{.text}}</a></li>
+                          {{ else }}
+                            <li><a href="{{.link}}" alt="{{.alt}}"><i class="fa fa-fw {{.icon}}"></i> {{.text}}</a></li>
+                          {{ end }}
+                        {{ end }}
+                      {{ end }}
+                    {{ end }}
+                  </ul>
+              {{ else }}
+                <li><a href="{{.link}}" alt="{{.alt}}">{{.text}}</a></li>
+              {{end}}
+            {{ end }}
+          {{ end }}
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>

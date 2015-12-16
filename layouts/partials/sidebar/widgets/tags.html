@@ -1,0 +1,11 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <i class="fa fa-lg fa-tag"></i>
+    Tags
+  </div>
+  <div class="panel-body">
+    {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+      <a class="tag-cloud" href="/tags/{{ $name | urlize }}">{{ $name }}</a>
+    {{ end }}
+  </div>
+</div>
