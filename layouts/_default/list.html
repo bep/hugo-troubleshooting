@@ -11,9 +11,8 @@
           </div>
           <div class="blog-post-body">
             <ul>
-              {{ $data := .Data }}
-              {{ range $key, $value := .Data.Terms }}
-                <li><a href="{{ $key | urlize }}">{{ $key }}</a></li>
+    		  {{ range .Data.Pages }}
+      			 <li><a href="{{.Permalink}}">{{.LinkTitle}}</a></li>
               {{ end }}
             </ul>
           </div>
